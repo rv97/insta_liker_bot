@@ -32,9 +32,7 @@ class InstaLikeBot():
             time.sleep(0.5)
             button.click()
             html.send_keys(Keys.DOWN)
-            if input() == 0:
-                break
 
 Instabot = InstaLikeBot()
 Instabot.login()
-# Instabot.like_posts()
+Instabot.like_posts()
