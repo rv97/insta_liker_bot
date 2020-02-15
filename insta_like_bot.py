@@ -28,10 +28,11 @@ class InstaLikeBot():
     def like_posts(self):
         html = self.driver.find_element_by_tag_name('html')
         while True:
-            button=self.driver.find_element_by_css_selector("[aria-label='Like']")
+            button=self.driver.find_element_by_css_selector("[aria-label='Like'][height='24']")
             time.sleep(0.5)
             button.click()
             html.send_keys(Keys.DOWN)
+            time.sleep(3)
 
 Instabot = InstaLikeBot()
 Instabot.login()
