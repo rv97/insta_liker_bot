@@ -36,7 +36,7 @@ class InstaLikeBot():
             
     def like_posts_in_a_profile(self):
         #This is like all the posts in a profile.
-
+        count = 1
         search_box = self.driver.find_element_by_css_selector("[placeholder='Search']")
         profile_name = input("Enter the profile name: ")
         search_box.send_keys(profile_name)
@@ -66,9 +66,14 @@ class InstaLikeBot():
                 try:
                     unlike_button = self.driver.find_element_by_css_selector("[aria-label='Unlike'][height='24']")
                 except:
+                    count = count+1
                     button=self.driver.find_element_by_css_selector("[aria-label='Like'][height='24']")
                     time.sleep(0.5)
                     button.click()
+                    if count > 100:
+                        answer = input("Instagram locks your account when you do around 300 likes an hour. It is already 100. Do you want to Risk it? (Y/N)")
+                        if answer == 'N':
+                            break
             else:
                 break
 
